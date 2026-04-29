@@ -1,6 +1,7 @@
 
 import ReleaseProvider, { DownloadRuyi, ChmodCommand, CpCommand } from '@site/src/components/docs_utils/LatestReleases';
 import ArchSelector from '@site/src/components/docs_utils/LatestReleases/ArchSelector';
+import CodeBlock from '@site/src/components/docs_utils/CodeBlock';
 
 <ReleaseProvider>
   <>
@@ -11,6 +12,20 @@ import ArchSelector from '@site/src/components/docs_utils/LatestReleases/ArchSel
 ### 下载 RuyiSDK 包管理器
 
 目前 RuyiSDK 包管理器工具为 **Linux** 系统预编译了 **amd64**(即x86_64)、**arm64**、**riscv64** 三种架构的二进制，它不依赖系统 Python，适用范围较为广泛。
+
+推荐使用安装脚本。脚本会自动识别系统架构，优先从 ISCAS 镜像下载最新稳定版，并安装到 ``/usr/local/bin/ruyi``：
+
+<CodeBlock lang="bash" showTitleCopyButton="true" code={`
+$ curl --proto '=https' --tlsv1.2 -fsSL https://ruyisdk.org/install.sh | sh
+`} />
+
+如需安装到用户目录，可以指定安装路径：
+
+<CodeBlock lang="bash" showTitleCopyButton="true" code={`
+$ curl --proto '=https' --tlsv1.2 -fsSL https://ruyisdk.org/install.sh | sh -s -- --install-dir "$HOME/.local/bin"
+`} />
+
+您也可以手动下载预编译二进制。
 
 它们同时发布在 GitHub Release 和 ISCAS 镜像站上：
 
