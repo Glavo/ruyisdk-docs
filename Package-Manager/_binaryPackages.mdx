@@ -13,16 +13,16 @@ import CodeBlock from '@site/src/components/docs_utils/CodeBlock';
 
 目前 RuyiSDK 包管理器工具为 **Linux** 系统预编译了 **amd64**(即x86_64)、**arm64**、**riscv64** 三种架构的二进制，它不依赖系统 Python，适用范围较为广泛。
 
-推荐使用安装脚本。脚本会自动识别系统架构，优先从 ISCAS 镜像下载最新稳定版，并安装到 ``/usr/local/bin/ruyi``：
+推荐使用安装脚本。脚本会自动识别系统架构，优先从 ISCAS 镜像下载最新稳定版，并安装到 ``~/.local/bin/ruyi``：
 
 <CodeBlock lang="bash" showTitleCopyButton="true" code={`
 $ curl --proto '=https' --tlsv1.2 -fsSL https://ruyisdk.org/install.sh | sh
 `} />
 
-如需安装到用户目录，可以指定安装路径：
+如需安装到系统目录，请使用 ``sudo`` 执行脚本并显式指定安装路径：
 
 <CodeBlock lang="bash" showTitleCopyButton="true" code={`
-$ curl --proto '=https' --tlsv1.2 -fsSL https://ruyisdk.org/install.sh | sh -s -- --install-dir "$HOME/.local/bin"
+$ curl --proto '=https' --tlsv1.2 -fsSL https://ruyisdk.org/install.sh | sudo sh -s -- --install-dir /usr/local/bin
 `} />
 
 您也可以手动下载预编译二进制。
@@ -55,8 +55,8 @@ $ ruyi version
 - 通过 ``echo $PATH`` 检查确保 ``ruyi`` 所在的目录存在于 ``PATH`` 环境变量配置中。
 :::
 :::tip 更改安装路径
-- 如果您需要自定义安装目录，请参考上述的文档，将命令中的 ``/usr/local/bin`` 路径替换为您的自定义安装目录，并确保您的 ``PATH`` 中包含该目录。
-- 将 ``ruyi`` 安装到 ``~/.local/bin/ruyi`` 可能会是一个更推荐的选择（用户目录下安装和删除不需要超级用户权限），此时您的 ``PATH`` 中需包含 ``~/.local/bin/`` 目录。
+- 如果您需要自定义安装目录，请参考上述文档，将命令中的安装路径替换为您的自定义安装目录，并确保您的 ``PATH`` 中包含该目录。
+- 默认安装目录为 ``~/.local/bin``。如果安装后无法直接运行 ``ruyi``，请确认 ``~/.local/bin`` 已加入 ``PATH``，必要时重新登录或重启 shell。
 :::
 
   </>
