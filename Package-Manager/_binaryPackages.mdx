@@ -13,26 +13,29 @@ import CodeBlock from '@site/src/components/docs_utils/CodeBlock';
 
 目前 RuyiSDK 包管理器工具为 **Linux** 系统预编译了 **amd64**(即x86_64)、**arm64**、**riscv64** 三种架构的二进制，它不依赖系统 Python，适用范围较为广泛。
 
-推荐使用安装脚本。脚本会自动识别系统架构，优先从 ISCAS 镜像下载最新稳定版，并安装到 ``~/.local/bin/ruyi``：
+
+#### 使用安装脚本（推荐）
+
+安装脚本会自动识别系统架构，优先从 ISCAS 镜像下载最新稳定版，并安装到 ``~/.local/bin/ruyi``：
 
 <CodeBlock lang="bash" showTitleCopyButton="true" code={`
 $ curl --proto '=https' --tlsv1.2 -fsSL https://ruyisdk.org/install.sh | sh
 `} />
 
-如需安装到系统目录，请使用 ``sudo`` 执行脚本并显式指定安装路径：
+如需安装到系统全局目录，请使用 ``sudo`` 执行脚本并显式指定安装路径：
 
 <CodeBlock lang="bash" showTitleCopyButton="true" code={`
 $ curl --proto '=https' --tlsv1.2 -fsSL https://ruyisdk.org/install.sh | sudo sh -s -- --install-dir /usr/local/bin
 `} />
 
-您也可以手动下载预编译二进制。
+#### 手动下载
 
-它们同时发布在 GitHub Release 和 ISCAS 镜像站上：
+您也可以手动下载预编译二进制，这些文件同时发布在 GitHub Release 和 ISCAS 镜像站上：
 
 - [ruyi GitHub Releases](https://github.com/ruyisdk/ruyi/releases/)
 - [ISCAS 镜像源](https://mirror.iscas.ac.cn/ruyisdk/ruyi/releases/)
 
-以 ISCAS 镜像源为例描述安装流程，首先运行 ``uname -m`` 检查系统架构并下载对应的二进制。
+以 ISCAS 镜像源为例描述手动下载流程。手动下载时，首先运行 ``uname -m`` 检查系统架构并下载对应的二进制。
 
 <ArchSelector />
 
